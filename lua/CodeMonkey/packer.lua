@@ -11,10 +11,24 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use { "rose-pine/neovim", as = "rose-pine" }
+  --use { "rose-pine/neovim", as = "rose-pine" }
+  use "EdenEast/nightfox.nvim"
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  use({'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'})
+  use({'neovim/nvim-lspconfig'})
+  use({'hrsh7th/nvim-cmp'})
+  use({'hrsh7th/cmp-nvim-lsp'})
+  use({'williamboman/mason.nvim'})
+  use({'williamboman/mason-lspconfig.nvim'})
+  use({
+      "L3MON4D3/LuaSnip",
+      -- follow latest release.
+      tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      -- install jsregexp (optional!:).
+      run = "make install_jsregexp"
+  })
 end)
 
